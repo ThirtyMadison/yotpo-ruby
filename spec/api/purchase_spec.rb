@@ -90,4 +90,29 @@ describe Yotpo::Purchase do
     it { should respond_to :product_description }
     it { should respond_to :created_at }
   end
+
+  describe '#delete_purhase' do
+    before(:all) do
+      delete_purchase_request = {
+        orders: [
+          {
+            order_id: '123',
+            skus: [
+              '123'
+            ]
+          }
+        ],
+        utoken: @utoken,
+        app_key: @app_key
+      }
+      VCR.use_cassette('delete_purchases') do
+        @response = Yotpo.delete_purchases(delete_purchase_request)
+      end
+    end
+
+    subject { @response.body }
+    it { should be_a ::Hashie::Mash }
+    it { should respond_to :code }
+    it { should respond_to :message }
+  end
 end

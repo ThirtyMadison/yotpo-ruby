@@ -37,5 +37,23 @@ module Yotpo
       app_key = params[:app_key]
       get("/apps/#{app_key}/purchases", request)
     end
+
+    def delete_purchase(params)
+      orders = params[:orders].map do |order|
+        {
+          order_id: order[:id],
+          skus: order[:skus]
+        }
+      end
+
+      request = {
+        utoken: params[:utoken],
+        orders: orders
+      }
+
+      request.delete_if { |_, value| value.nil? }
+      app_key = params[:app_key]
+      get("/apps/#{app_key}/purchases", request)
+    end
   end
 end
