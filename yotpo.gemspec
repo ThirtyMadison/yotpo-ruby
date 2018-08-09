@@ -19,9 +19,9 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = %w(lib)
 
-  gem.add_dependency 'faraday'
+  gem.add_dependency 'faraday', '~> 0.9'
   gem.add_dependency 'typhoeus'
-  gem.add_dependency 'faraday_middleware', '>= 0.8', '< 0.10'
+  gem.add_dependency 'faraday_middleware'
   gem.add_dependency 'hashie'
   gem.add_dependency 'oj'
   gem.add_dependency 'activesupport'
