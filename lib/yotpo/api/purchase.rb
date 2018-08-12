@@ -49,7 +49,7 @@ module Yotpo
       request = {
         utoken: params[:utoken],
         orders: orders
-      }
+      }response_parser.rb
 
       request.delete_if { |_, value| value.nil? }
       app_key = params[:app_key]

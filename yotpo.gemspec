@@ -21,7 +21,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'faraday', '~> 0.9'
   gem.add_dependency 'typhoeus'
-  gem.add_dependency 'faraday_middleware'
   gem.add_dependency 'hashie'
   gem.add_dependency 'oj'
   gem.add_dependency 'activesupport'
